@@ -1,0 +1,5 @@
+número,Nome,Votos
+74,Viviano Montes,30
+80,Fabiolo Marques,28
+93,Sergia Vieira,35
+99,NulosBranco,12
