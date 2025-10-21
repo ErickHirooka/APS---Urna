@@ -1,4 +1,7 @@
 # Função para criptografar usando Cifra de César
+'''
+Esse arquivo só está aqui para organizar o código e pegar as funções de criptografia, será retirado na versão final
+'''
 def criptografar_cesar(texto, chave):
     texto_criptografado = ""
     for char in texto:
