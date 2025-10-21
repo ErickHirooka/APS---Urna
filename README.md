@@ -1,6 +1,6 @@
 ## **Introdução**
 
-Este projeto foi desenvolvido como parte do curso \[Insira o Nome da Disciplina Aqui\] e tem como objetivo principal demonstrar a aplicação prática de técnicas fundamentais de criptografia e integridade de dados no contexto de sistemas de votação eletrônica (urnas).
+Este projeto foi desenvolvido como parte do curso de Ciência da Computação e tem como objetivo principal demonstrar a aplicação prática de técnicas fundamentais de criptografia e integridade de dados no contexto de sistemas de votação eletrônica (urnas).
 
 O exercício consiste em processar dados brutos de uma eleição — incluindo informações da urna, dos candidatos e os votos registrados — aplicando mecanismos de segurança para garantir a **confidencialidade** e a **imutabilidade** do conteúdo.
 
@@ -10,6 +10,7 @@ O principal objetivo desta solução é:
 
 1. **Criptografar** o conteúdo dos arquivos de dados eleitorais para proteger as informações confidenciais contra acesso não autorizado (Confidencialidade).  
 2. **Gerar um código hash** único para o arquivo criptografado, permitindo a verificação rápida e eficiente de que o arquivo não foi alterado após o processamento (Integridade).
+3. **Não** utilizar nenhuma biblioteca auxiliar no processo.
 
 ## **🛠️ Componentes da Solução**
 
@@ -53,9 +54,3 @@ Para garantir a integridade dos arquivos (prova de que os dados não foram adult
    * Criptografa o conteúdo usando a chave XOR.  
    * Salva o conteúdo criptografado em um novo arquivo (em modo binário).  
    * Calcula o *hash* do **arquivo criptografado** para verificar sua integridade futura.
-
-## **🚀 Próximos Passos (Sugestões para Expansão)**
-
-* **Hash Criptográfico:** Substituir a simple\_hash por uma função de hash segura e padrão, como SHA-256 (via módulo hashlib).  
-* **Gerenciamento de Chaves:** Implementar um mecanismo seguro para armazenar e distribuir as chaves (em vez de digitá-las).  
-* **Interface:** Criar uma interface gráfica simples para facilitar a interação com os arquivos.
