@@ -1,9 +1,5 @@
 # --- Função de Hash DJB2 ---
 def hash_djb2(texto_bytes):
-  """
-  Calcula o hash DJB2 para uma entrada de bytes.
-  Retorna um número inteiro (o hash).
-  """
   # Garante que a entrada sejam bytes
   if isinstance(texto_bytes, str):
     # Usa 'latin-1' para consistência com os arquivos .csv
@@ -21,10 +17,8 @@ def hash_djb2(texto_bytes):
 # Criar a cifra XOR
 def xor_cifra(texto, chave):
   if isinstance(texto, str):
-    # Usa 'latin-1'
     texto = texto.encode('latin-1')
   if isinstance(chave, str):
-    # Usa 'latin-1'
     chave = chave.encode('latin-1')
     
   if len(chave) < len(texto):
@@ -35,12 +29,7 @@ def xor_cifra(texto, chave):
 
 
 def acessa_arquivo(nome_arq):
-  """
-  Lê o conteúdo do arquivo de forma segura.
-  Retorna o conteúdo como string ou None se houver erro.
-  """
   try:
-    # Lê o arquivo .csv usando 'latin-1'
     with open(nome_arq, 'r', encoding='latin-1') as arquivo:
       return arquivo.read()
   except FileNotFoundError:
@@ -52,24 +41,20 @@ def acessa_arquivo(nome_arq):
   
   
 def criptografar(nome_arquivo_entrada, nome_arquivo_saida, chave_criptografia):
-  # 1. Lê o conteúdo do arquivo .csv original (como string)
   conteudo_original = acessa_arquivo(nome_arquivo_entrada)
-  
-  # Se a leitura falhou (acessa_arquivo retornou None), para a execução.
   if conteudo_original is None:
     print("Operação de criptografia cancelada.")
     return
 
-  # 2. Calcula o HASH do conteúdo ORIGINAL
+  # Calcula o HASH do conteúdo ORIGINAL
   hash_original = hash_djb2(conteudo_original)
   
-  # 3. Criptografa o conteúdo original
+  # Criptografa o conteúdo original
   conteudo_criptografado = xor_cifra(conteudo_original, chave_criptografia)
   
-  # 4. Salva o HASH e o CONTEÚDO CRIPTOGRAFADO
+  # Salva o HASH e o CONTEÚDO CRIPTOGRAFADO
   try:
     with open(nome_arquivo_saida, 'wb') as arquivo_saida:
-      # Codifica o hash como 'latin-1' para consistência
       linha_hash = f"{hash_original}\n".encode('latin-1')
       
       arquivo_saida.write(linha_hash)
